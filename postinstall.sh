@@ -49,7 +49,11 @@ fi
 
 # === 1. SYSTEM UPDATE ===
 log "Updating system packages..." # log the system update
-apt update && apt upgrade -y &>>"$LOG_FILE" # update the system and log the output
+apt update && apt upgrade -y >> "$LOG_FILE" 2>&1 # update the system and log the output
+if [ $? -ne 0 ]; then
+    echo "Une erreur est survenue lors de la mise à jour" >> "$LOG_FILE"
+    exit 1
+fi
 
 # === 2. PACKAGE INSTALLATION ===
 if [ -f "$PACKAGE_LIST" ]; then # check if the package list file exists 
