@@ -2,3 +2,6 @@ nmap
 net-tools
 htop
 curl
+terminator
+discord
+burp
