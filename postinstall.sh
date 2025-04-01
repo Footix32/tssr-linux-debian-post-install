@@ -55,8 +55,11 @@ if [ "$EUID" -ne 0 ]; then  # check if the script is run as root
 fi
 
 # === 1. SYSTEM UPDATE ===
-log "Updating system packages..." # log the system update
-apt update && apt upgrade -y &>>"$LOG_FILE" # update the system and log the output
+log "Updating system packages..." # Log the update start
+if ! apt update && apt upgrade -y >> "$LOG_FILE" 2>&1; then
+    log "Une erreur est survenue lors de la mise à jour"
+    exit 1
+fi
 
 # === 2. PACKAGE INSTALLATION ===
 if [ -f "$PACKAGE_LIST" ]; then # check if the package list file exists 
