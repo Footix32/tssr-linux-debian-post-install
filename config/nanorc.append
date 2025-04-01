@@ -2,3 +2,13 @@ set linenumbers
 set softwrap
 set tabsize 4
 set mouse
+set autoindent      # Indentation automatique
+set constantshow    # Affiche la position du curseur (ligne, colonne)
+set morespace       # Ajoute une ligne vide en bas pour plus de lisibilité
+set quickblank      # Cache l'interface d'aide après un certain temps
+set titlecolor brightblue,black   # Change la couleur de la barre de titre
+set smarthome       # Permet d’aller au premier caractère non vide avec Home
+set nowrap          # Désactive le retour à la ligne forcé
+set jumpyscrolling  # Fait défiler plus rapidement lors du déplacement
+set smooth          # Défilement plus fluide
+set historylog      # Enregistre l’historique des commandes utilisées
